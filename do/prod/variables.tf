@@ -1,6 +1,11 @@
 # Terraform  default environment variables
 # variables.tf
 
+variable "token" {
+  description = "Working environment"
+  type        = string
+}
+
 variable "env" {
   description = "Working environment"
   type        = string

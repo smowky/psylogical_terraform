@@ -3,7 +3,7 @@
 
 # Configure the DigitalOcean Provider
 provider "digitalocean" {
-  token   = "0515444d8bcda6935cfd4d9a42d169d5ddabe3afb183cb1c9e37c8781de8b8e1"
+  token   = var.token
 }
 
 # Terraform backend to store current running configuration
