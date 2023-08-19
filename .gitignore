@@ -1,0 +1,7 @@
+vault_pass
+.git
+**/**/.terraform
+**/**/.terraform/*
+**/**/variables_secret.auto.tfvars
+**/**/local.auto.tfvars
+**/.idea/*
