@@ -32,7 +32,7 @@ module "project" {
     module.arnor.server_urn,
     module.dale.server_urn,
     #    module.mirkwood.server_urn,
-    module.cdn.server_urn,
+    #    module.cdn.server_urn,
 #    module.volume-gondor.volume_urn,
 
 ]
@@ -142,23 +142,23 @@ module "dale" {
 #
 #}
 
-module "cdn" {
-  source = "../modules/server/"
-
-  server_name  = "cdn"
-  tags         = [ var.env, "cdn"  ]
-
-  env          = var.env
-  project_name = var.project_name
-  domain       = var.domain
-  size         = "s-2vcpu-4gb"
-  ssh_private_key = var.ssh_private_key
-  ssh_keys     = [digitalocean_ssh_key.smowky_ecdsa_key.id]
-  floating_ip  = false
-  resize_disk  = false
-  image        = "debian-12-x64"
-
-}
+#module "cdn" {
+#  source = "../modules/server/"
+#
+#  server_name  = "cdn"
+#  tags         = [ var.env, "cdn"  ]
+#
+#  env          = var.env
+#  project_name = var.project_name
+#  domain       = var.domain
+#  size         = "s-4vcpu-8gb"
+#  ssh_private_key = var.ssh_private_key
+#  ssh_keys     = [digitalocean_ssh_key.smowky_ecdsa_key.id]
+#  floating_ip  = false
+#  resize_disk  = false
+#  image        = "debian-12-x64"
+#
+#}
 
 #################################################
 # Firewall
@@ -257,13 +257,13 @@ output "dale_ip" {
   value = module.dale.server_ip
 }
 
-output "cdn_hostname" {
-  value = module.cdn.server_name
-}
-
-output "cdn_ip" {
-  value = module.cdn.server_ip
-}
+#output "cdn_hostname" {
+#  value = module.cdn.server_name
+#}
+#
+#output "cdn_ip" {
+#  value = module.cdn.server_ip
+#}
 
 #output "mirkwood_hostname" {
 #  value = module.mirkwood.server_name

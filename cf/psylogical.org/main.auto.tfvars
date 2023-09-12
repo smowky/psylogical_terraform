@@ -187,23 +187,4 @@ dns_records = {
       dns_note: "web hosting server"
       dns_ttl: 600
    },
-   "printsoft": {
-      dns_name: "printsoft",
-      dns_value: "185.80.222.75"
-      dns_type: "A",
-      dns_priority: null
-      dns_proxied: "false",
-      dns_note: "web hosting server"
-      dns_ttl: 600
-   },
-   "grafana-cdn": {
-      dns_name: "grafana-cdn",
-      dns_value: "104.248.19.107"
-      dns_type: "A",
-      dns_priority: null
-      dns_proxied: "false",
-      dns_note: "cdn77 infra test"
-      dns_ttl: 600
-   }
-}   
-
+}
