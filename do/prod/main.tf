@@ -31,7 +31,7 @@ module "project" {
     module.rohan.server_urn,
     module.arnor.server_urn,
     module.dale.server_urn,
-    #    module.mirkwood.server_urn,
+    module.mirkwood.server_urn,
     #    module.cdn.server_urn,
 #    module.volume-gondor.volume_urn,
 
@@ -66,7 +66,7 @@ module "gondor" {
   env          = var.env
   project_name = var.project_name
   domain       = var.domain
-  size         = "s-1vcpu-2gb"
+  size         = "s-2vcpu-2gb"
   ssh_keys     = [digitalocean_ssh_key.smowky_ssh_key.fingerprint]
   floating_ip  = false
   resize_disk  = false
@@ -116,7 +116,7 @@ module "dale" {
   env          = var.env
   project_name = var.project_name
   domain       = var.domain
-  size         = "s-1vcpu-2gb"
+  size         = "s-2vcpu-4gb"
   ssh_keys     = [digitalocean_ssh_key.smowky_ssh_key.fingerprint]
   floating_ip  = false
   resize_disk  = false
@@ -124,23 +124,23 @@ module "dale" {
 
 }
 
-#module "mirkwood" {
-#  source = "../modules/server/"
-#
-#  server_name  = "mirkwood"
-#  tags         = [ var.env, "mirkwood"  ]
-#
-#  env          = var.env
-#  project_name = var.project_name
-#  domain       = var.domain
-#  size         = "s-2vcpu-4gb"
-#  ssh_private_key = var.ssh_private_key
-#  ssh_keys     = [digitalocean_ssh_key.smowky_ecdsa_key.id]
-#  floating_ip  = false
-#  resize_disk  = false
-#  image        = "ubuntu-22-04-x64"
-#
-#}
+module "mirkwood" {
+  source = "../modules/server/"
+
+  server_name  = "mirkwood"
+  tags         = [ var.env, "mirkwood"  ]
+
+  env          = var.env
+  project_name = var.project_name
+  domain       = var.domain
+  size         = "s-1vcpu-2gb"
+  ssh_private_key = var.ssh_private_key
+  ssh_keys     = [digitalocean_ssh_key.smowky_ecdsa_key.id]
+  floating_ip  = false
+  resize_disk  = false
+  image        = "ubuntu-24-04-x64"
+
+}
 
 #module "cdn" {
 #  source = "../modules/server/"
@@ -265,10 +265,10 @@ output "dale_ip" {
 #  value = module.cdn.server_ip
 #}
 
-#output "mirkwood_hostname" {
-#  value = module.mirkwood.server_name
-#}
-#
-#output "mirkwood_ip" {
-#  value = module.mirkwood.server_ip
-#}
+output "mirkwood_hostname" {
+  value = module.mirkwood.server_name
+}
+
+output "mirkwood_ip" {
+  value = module.mirkwood.server_ip
+}

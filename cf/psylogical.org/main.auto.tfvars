@@ -135,7 +135,7 @@ dns_records = {
    },
    "mirkwood": {
       dns_name: "mirkwood",
-      dns_value: "68.183.222.3"
+      dns_value: "46.101.153.165"
       dns_type: "A",
       dns_priority: null
       dns_proxied: "false",
