@@ -133,7 +133,7 @@ module "mirkwood" {
   env          = var.env
   project_name = var.project_name
   domain       = var.domain
-  size         = "s-1vcpu-2gb"
+  size         = "s-2vcpu-4gb"
   ssh_private_key = var.ssh_private_key
   ssh_keys     = [digitalocean_ssh_key.smowky_ecdsa_key.id]
   floating_ip  = false
