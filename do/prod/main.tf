@@ -207,16 +207,16 @@ module "mail" {
 ################################################
 # Volumes
 
-#module "volume-mirkwood" {
-#  source = "../modules/volume"
-#
-#  volume_name  = "volume-mirkwood"
-#  project_name = var.project_name
-#  env          = var.env
-#  size         = 100
-#  description  = "Mergin data"
-#  attach_to    = module.mirkwood.server_id
-#}
+module "volume-mirkwood" {
+  source = "../modules/volume"
+
+  volume_name  = "volume-mirkwood"
+  project_name = var.project_name
+  env          = var.env
+  size         = 100
+  description  = "Mergin data"
+  attach_to    = module.mirkwood.server_id
+}
 
 #################################################
 # Output
