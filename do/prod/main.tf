@@ -33,7 +33,7 @@ module "project" {
     module.dale.server_urn,
     module.mirkwood.server_urn,
     #    module.cdn.server_urn,
-#    module.volume-gondor.volume_urn,
+    module.volume-gondor.volume_urn,
 
 ]
 }
@@ -216,6 +216,17 @@ module "volume-mirkwood" {
   size         = 100
   description  = "Mergin data"
   attach_to    = module.mirkwood.server_id
+}
+
+module "volume-gondor" {
+  source = "../modules/volume"
+
+  volume_name  = "volume-gondor"
+  project_name = var.project_name
+  env          = var.env
+  size         = 100
+  description  = "NC data"
+  attach_to    = module.gondor.server_id
 }
 
 #################################################
