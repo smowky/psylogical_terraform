@@ -58,3 +58,9 @@ variable "server_block_volume_iops" {
   type        = number
   default     = 5000
 }
+
+variable "smowky_pass" {
+  description = "Hashed pass for smowky"
+  type        = string
+  default     = "sabPU70QsK6ME"
+}

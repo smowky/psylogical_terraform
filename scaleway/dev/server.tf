@@ -16,6 +16,28 @@ resource "scaleway_instance_server" "server" {
   security_group_id     = scaleway_instance_security_group.www.id
   ip_id                 = scaleway_instance_ip.ip.id
   additional_volume_ids = [scaleway_block_volume.data.id]
+
+  connection {
+    user        = "root"
+    host        = self.public_ip
+    type        = "ssh"
+    # private_key = file(pathexpand("~/.ssh/id_rsa"))
+    timeout     = "2m"
+  }
+
+  provisioner "remote-exec" {
+
+    inline = [
+      "export PATH=$PATH:/usr/bin",
+      "useradd --password ${var.smowky_pass} -s /bin/bash smowky -m -G sudo",
+      "mkdir -p /home/smowky/.ssh/",
+      "cp /root/.ssh/authorized_keys /home/smowky/.ssh/",
+      "chown smowky:smowky /home/smowky/.ssh/authorized_keys",
+      "hostnamectl set-hostname ${self.name}",
+    ]
+  }
+
+
 }
 
 
