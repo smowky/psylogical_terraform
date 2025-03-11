@@ -17,3 +17,23 @@ terraform {
     }
   }
 }
+
+#################################################
+# Firewall
+locals {
+  trusted = [
+    { ip = "0.0.0.0/0", port = "22" },
+    { ip = "0.0.0.0/0", port = "80" },
+    { ip = "0.0.0.0/0", port = "443" },
+  ]
+}
+module "fw01" {
+  source = "../modules/fw/"
+  project_id              = var.project_id
+  server_zone                    = var.server_zone
+  env             = var.env
+
+  fw_rules            = local.trusted
+  fw_name = "fw01"
+}
+
