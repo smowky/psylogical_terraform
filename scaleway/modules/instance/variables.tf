@@ -35,6 +35,7 @@ variable "server_name" {
 
 variable "server_volume" {
   description = "First left FQDN record"
+  default = []
 }
 
 variable "user_pass" {

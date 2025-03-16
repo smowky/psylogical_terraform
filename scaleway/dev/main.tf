@@ -37,22 +37,36 @@ module "fw01" {
   fw_name  = "fw01"
 }
 
+#################################################
+# Instances
 module "server02" {
-  source      = "../modules/instance/"
-  project_id  = var.project_id
-  user_name   = var.user_name
-  server_zone = var.server_zone
-  env         = var.env
-  server_domain      = var.server_domain
+  source        = "../modules/instance/"
+  project_id    = var.project_id
+  user_name     = var.user_name
+  server_zone   = var.server_zone
+  env           = var.env
+  server_domain = var.server_domain
 
   server_name           = "server02"
   server_image          = "ubuntu_jammy"
   server_size           = "DEV1-L"
-  server_security_group = module.fw01.security_group_id 
-  server_volume = [scaleway_block_volume.data.id ]
+  server_security_group = module.fw01.security_group_id
+#  server_volume         = [module.disk01.volume_id]
 
 }
 
+#################################################
+# Volumes
+
+module "disk01" {
+  source                   = "../modules/volume/"
+  volume_name              = "disk01"
+  env                      = var.env
+  project_name             = var.project_name
+  server_zone              = var.server_zone
+  project_id               = var.project_id
+  server_block_volume_size = 10
+}
 #################################################
 # Output
 
