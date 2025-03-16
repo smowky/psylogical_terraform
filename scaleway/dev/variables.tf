@@ -28,16 +28,6 @@ variable "ssh_public_key" {
   type        = string
 }
 
-variable "server_size" {
-  description = "Scaleway server size"
-  type        = string
-}
-
-variable "server_image" {
-  description = "server image os"
-  type        = string
-}
-
 variable "server_zone" {
   description = "The zone you want to target. https://www.scaleway.com/en/developers/api/instance/#path-instances-list-all-instances"
   type        = string
@@ -57,6 +47,11 @@ variable "server_block_volume_iops" {
   description = "The scaleway_block_volume resource is used to create and manage Scaleway Block Storage volumes."
   type        = number
   default     = 5000
+}
+
+variable "user_name" {
+  description = "non root user name"
+  type        = string
 }
 
 variable "smowky_pass" {

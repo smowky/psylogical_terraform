@@ -28,12 +28,47 @@ locals {
   ]
 }
 module "fw01" {
-  source = "../modules/fw/"
-  project_id              = var.project_id
-  server_zone                    = var.server_zone
-  env             = var.env
+  source      = "../modules/fw/"
+  project_id  = var.project_id
+  server_zone = var.server_zone
+  env         = var.env
 
-  fw_rules            = local.trusted
-  fw_name = "fw01"
+  fw_rules = local.trusted
+  fw_name  = "fw01"
+}
+
+module "server02" {
+  source      = "../modules/instance/"
+  project_id  = var.project_id
+  user_name   = var.user_name
+  server_zone = var.server_zone
+  env         = var.env
+  server_domain      = var.server_domain
+
+  server_name           = "server02"
+  server_image          = "ubuntu_jammy"
+  server_size           = "DEV1-L"
+  server_security_group = module.fw01.security_group_id 
+  server_volume = [scaleway_block_volume.data.id ]
+
+}
+
+#################################################
+# Output
+
+output "project_name" {
+  value = var.project_name
+}
+
+output "server02_hostname" {
+  value = module.server02.server_name
+}
+
+output "server02_ip" {
+  value = module.server02.server_ip
+}
+
+output "server02_state" {
+  value = module.server02.server_state
 }
 
