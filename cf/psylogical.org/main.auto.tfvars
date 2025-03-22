@@ -142,6 +142,15 @@ dns_records = {
       dns_note: "ZM project - mergin"
       dns_ttl: 600
    },
+   "mordor": {
+      dns_name: "mordor",
+      dns_value: "51.15.47.175"
+      dns_type: "A",
+      dns_priority: null
+      dns_proxied: "false",
+      dns_note: "scaleway iredmail server"
+      dns_ttl: 600
+   },
    "mergin": {
       dns_name: "mergin",
       dns_value: "mirkwood.psylogical.org"
