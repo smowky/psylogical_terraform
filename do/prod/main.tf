@@ -213,7 +213,7 @@ module "volume-mirkwood" {
   volume_name  = "volume-mirkwood"
   project_name = var.project_name
   env          = var.env
-  size         = 100
+  size         = 200
   description  = "Mergin data"
   attach_to    = module.mirkwood.server_id
 }
