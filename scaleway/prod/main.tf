@@ -124,7 +124,7 @@ module "gandalf" {
 
   server_name           = "gandalf"
   server_image          = "ubuntu_jammy"
-  server_size           = "DEV1-S"
+  server_size           = "PLAY2-NANO"
   server_security_group = module.fw01.security_group_id
   private_vpc_id = module.vpc.pn_id
   server_volume         = [module.disk02.volume_id]
