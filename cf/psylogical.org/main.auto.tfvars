@@ -214,4 +214,13 @@ dns_records = {
       dns_note: "email solution on scaleway provider"
       dns_ttl: 600
    },
+   "sauron.prod": {
+      dns_name: "sauron.prod",
+      dns_value: "sauron.psylogical.org"
+      dns_type: "CNAME",
+      dns_priority: null
+      dns_proxied: "false",
+      dns_note: "email solution on scaleway provider"
+      dns_ttl: 600
+   },
 }
