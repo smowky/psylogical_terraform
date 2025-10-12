@@ -19,7 +19,7 @@ variable "vpc_name" {
   default     = ""
 }
 
-variable "vpn_name" {
+variable "pn_name" {
   description = "string to construct volume name"
   type        = string
   default     = ""
