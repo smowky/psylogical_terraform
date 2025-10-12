@@ -18,7 +18,7 @@ variable "server_image" {
   type        = string
 }
 
-variable "server_zone" {
+variable "scaleway_zone" {
   description = "The zone you want to target. https://www.scaleway.com/en/developers/api/instance/#path-instances-list-all-instances"
   type        = string
 }
@@ -36,6 +36,10 @@ variable "server_name" {
 variable "server_volume" {
   description = "First left FQDN record"
   default = []
+}
+variable "private_vpc_id" {
+  description = "virtual network id"
+  default = null
 }
 
 variable "user_pass" {
