@@ -225,7 +225,7 @@ dns_records = {
    },
    "gandalf": {
       dns_name: "gandalf",
-      dns_value: "51.15.103.113"
+      dns_value: "51.15.59.152"
       dns_type: "A",
       dns_priority: null
       dns_proxied: "false",
