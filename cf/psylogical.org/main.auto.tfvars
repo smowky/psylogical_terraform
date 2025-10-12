@@ -205,4 +205,13 @@ dns_records = {
       dns_note: "web hosting server"
       dns_ttl: 600
    },
+   "sauron": {
+      dns_name: "sauron",
+      dns_value: "51.15.103.113"
+      dns_type: "A",
+      dns_priority: null
+      dns_proxied: "false",
+      dns_note: "email solution on scaleway provider"
+      dns_ttl: 600
+   },
 }
