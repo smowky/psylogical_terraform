@@ -3,7 +3,7 @@
 resource "scaleway_instance_security_group" "security_group" {
   project_id              = var.project_id
   name                    = "${var.fw_name}-${var.env}"
-  zone                    = var.server_zone
+  zone                    = var.scaleway_zone
   inbound_default_policy  = "drop"
   outbound_default_policy = "accept"
 
