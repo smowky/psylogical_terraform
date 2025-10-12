@@ -19,6 +19,12 @@ variable "vpc_name" {
   default     = ""
 }
 
+variable "vpn_name" {
+  description = "string to construct volume name"
+  type        = string
+  default     = ""
+}
+
 variable "env" {
   description = "environment that volume belong"
   type        = string
