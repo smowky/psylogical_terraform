@@ -62,6 +62,29 @@ module "fw01" {
   fw_name  = "fw01"
 }
 
+locals {
+  email = [
+    { ip = "0.0.0.0/0", port = "22" },  # ssh
+    { ip = "0.0.0.0/0", port = "80" },  # web
+    { ip = "0.0.0.0/0", port = "443" }, # https
+    { ip = "0.0.0.0/0", port = "25" },  # postfix
+    { ip = "0.0.0.0/0", port = "110" }, # dovecot
+    { ip = "0.0.0.0/0", port = "993" }, # dovecot
+    { ip = "0.0.0.0/0", port = "587" }, # postfix
+  ]
+}
+
+module "fw02" {
+  fw_name  = "fw02"
+  source        = "../modules/fw/"
+  project_id    = scaleway_account_project.project.id
+  env           = var.env
+  scaleway_zone = var.scaleway_zone
+
+  fw_rules = local.email
+}
+
+
 ###################################################
 ## SSH
 resource "scaleway_iam_ssh_key" "main" {
@@ -83,31 +106,31 @@ module "sauron" {
 
   server_name           = "sauron"
   server_image          = "ubuntu_jammy"
-  server_size           = "DEV1-S"
-  server_security_group = module.fw01.security_group_id
+  server_size           = "PLAY2-NANO"
+  server_security_group = module.fw02.security_group_id
   private_vpc_id = module.vpc.pn_id
   server_volume         = [module.disk01.volume_id]
   user_pass = var.user_pass
 }
 
-#module "gandalf" {
-#  source        = "../modules/instance/"
-#  project_id    = scaleway_account_project.project.id
-#  user_name     = var.user_name
-#
-#  scaleway_zone   = var.scaleway_zone
-#  env           = var.env
-#  server_domain = var.server_domain
-#
-#  server_name           = "gandalf"
-#  server_image          = "ubuntu_jammy"
-#  server_size           = "DEV1-S"
-#  server_security_group = module.fw01.security_group_id
-#  private_vpc_id = module.vpc.pn_id
-##  server_volume         = [module.disk01.volume_id]
-#  user_pass = var.user_pass
-#}
-#
+module "gandalf" {
+  source        = "../modules/instance/"
+  project_id    = scaleway_account_project.project.id
+  user_name     = var.user_name
+
+  scaleway_zone   = var.scaleway_zone
+  env           = var.env
+  server_domain = var.server_domain
+
+  server_name           = "gandalf"
+  server_image          = "ubuntu_jammy"
+  server_size           = "DEV1-S"
+  server_security_group = module.fw01.security_group_id
+  private_vpc_id = module.vpc.pn_id
+  server_volume         = [module.disk02.volume_id]
+  user_pass = var.user_pass
+}
+
 #module "server03" {
 #  source        = "../modules/instance/"
 #  project_id    = scaleway_account_project.project.id
@@ -136,6 +159,16 @@ module "disk01" {
   project_name             = var.project_name
   scaleway_zone            = var.scaleway_zone
   server_block_volume_size = 20
+}
+
+module "disk02" {
+  project_id    = scaleway_account_project.project.id
+  source                   = "../modules/volume/"
+  volume_name              = "disk02"
+  env                      = var.env
+  project_name             = var.project_name
+  scaleway_zone            = var.scaleway_zone
+  server_block_volume_size = 100
 }
 #################################################
 ## Output
