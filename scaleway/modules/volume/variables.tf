@@ -3,7 +3,7 @@ variable "project_id" {
   description = "Your project ID."
 }
 
-variable "server_zone" {
+variable "scaleway_zone" {
   description = "The zone you want to target. https://www.scaleway.com/en/developers/api/instance/#path-instances-list-all-instances"
   type        = string
 }
