@@ -189,6 +189,10 @@ output "sauron_state" {
   value = module.sauron.server_state
 }
 
+output "sauron_volume_id" {
+  value = module.disk01.volume_id
+}
+
 output "gandalf_hostname" {
   value = module.gandalf.server_name
 }
@@ -199,6 +203,10 @@ output "gandalf_ip" {
 
 output "gandalf_state" {
   value = module.gandalf.server_state
+}
+
+output "gandalf_volume_id" {
+  value = module.disk02.volume_id
 }
 
 #output "server03_hostname" {
