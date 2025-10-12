@@ -45,13 +45,11 @@ variable "private_vpc_id" {
 variable "user_pass" {
   description = "Hashed pass for user"
   type        = string
-  default     = "sabPU70QsK6ME"
 }
 
 variable "user_name" {
   description = "Hashed pass for user"
   type        = string
-  default     = "smowky"
 }
 
 variable "server_security_group" {
