@@ -1,4 +1,4 @@
-variable "project_id" {
+variable "organization_id" {
   type        = string
   description = "Your project ID."
 }
@@ -28,7 +28,12 @@ variable "ssh_public_key" {
   type        = string
 }
 
-variable "server_zone" {
+variable "scaleway_zone" {
+  description = "The zone you want to target. https://www.scaleway.com/en/developers/api/instance/#path-instances-list-all-instances"
+  type        = string
+}
+
+variable "scaleway_region" {
   description = "The zone you want to target. https://www.scaleway.com/en/developers/api/instance/#path-instances-list-all-instances"
   type        = string
 }
@@ -54,8 +59,7 @@ variable "user_name" {
   type        = string
 }
 
-variable "smowky_pass" {
+variable "user_pass" {
   description = "Hashed pass for smowky"
   type        = string
-  default     = "sabPU70QsK6ME"
 }
