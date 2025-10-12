@@ -223,4 +223,22 @@ dns_records = {
       dns_note: "email solution on scaleway provider"
       dns_ttl: 600
    },
+   "gandalf": {
+      dns_name: "gandalf",
+      dns_value: "51.15.103.113"
+      dns_type: "A",
+      dns_priority: null
+      dns_proxied: "false",
+      dns_note: "nextcloud on scaleway provider"
+      dns_ttl: 600
+   },
+   "gandalf.prod": {
+      dns_name: "gandalf.prod",
+      dns_value: "gandalf.psylogical.org"
+      dns_type: "CNAME",
+      dns_priority: null
+      dns_proxied: "false",
+      dns_note: "nextcloud on scaleway provider"
+      dns_ttl: 600
+   },
 }

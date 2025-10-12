@@ -189,18 +189,18 @@ output "sauron_state" {
   value = module.sauron.server_state
 }
 
-#output "server02_hostname" {
-#  value = module.server02.server_name
-#}
-#
-#output "server02_ip" {
-#  value = module.server02.server_ip
-#}
-#
-#output "server02_state" {
-#  value = module.server02.server_state
-#}
-#
+output "gandalf_hostname" {
+  value = module.gandalf.server_name
+}
+
+output "gandalf_ip" {
+  value = module.gandalf.server_ip
+}
+
+output "gandalf_state" {
+  value = module.gandalf.server_state
+}
+
 #output "server03_hostname" {
 #  value = module.server03.server_name
 #}
