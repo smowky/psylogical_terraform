@@ -157,7 +157,7 @@ dns_records = {
       dns_type: "A",
       dns_priority: null
       dns_proxied: "false",
-      dns_note: "scaleway iredmail server"
+      dns_note: "scaleway gisquick server"
       dns_ttl: 600
    },
    "mergin": {
