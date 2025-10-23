@@ -71,6 +71,7 @@ locals {
     { ip = "0.0.0.0/0", port = "110" }, # dovecot
     { ip = "0.0.0.0/0", port = "993" }, # dovecot
     { ip = "0.0.0.0/0", port = "587" }, # postfix
+    { ip = "172.16.0.0/22", port = "389" }, # ldap
   ]
 }
 
@@ -131,24 +132,23 @@ module "gandalf" {
   user_pass = var.user_pass
 }
 
-#module "server03" {
-#  source        = "../modules/instance/"
-#  project_id    = scaleway_account_project.project.id
-#  user_name     = var.user_name
-#  scaleway_zone   = var.scaleway_zone
-#
-#  env           = var.env
-#  server_domain = var.server_domain
-#
-#  server_name           = "server03"
-#  server_image          = "ubuntu_jammy"
-#  server_size           = "DEV1-S"
-#  server_security_group = module.fw01.security_group_id
-#  private_vpc_id = module.vpc.pn_id
-##  server_volume         = [module.disk01.volume_id]
-#  user_pass = var.user_pass
-#}
-#
+module "galadriel" {
+  source        = "../modules/instance/"
+  project_id    = scaleway_account_project.project.id
+  user_name     = var.user_name
+
+  scaleway_zone   = var.scaleway_zone
+  env           = var.env
+  server_domain = var.server_domain
+
+  server_name           = "galadriel"
+  server_image          = "ubuntu_jammy"
+  server_size           = "PLAY2-NANO"
+  server_security_group = module.fw01.security_group_id
+  private_vpc_id = module.vpc.pn_id
+  user_pass = var.user_pass
+}
+
 #################################################
 # Volumes
 module "disk01" {
@@ -209,16 +209,20 @@ output "gandalf_volume_id" {
   value = module.disk02.volume_id
 }
 
-#output "server03_hostname" {
-#  value = module.server03.server_name
-#}
-#
-#output "server03_ip" {
-#  value = module.server03.server_ip
-#}
-#
-#output "server03_state" {
-#  value = module.server03.server_state
+output "galadriel_hostname" {
+  value = module.galadriel.server_name
+}
+
+output "galadriel_ip" {
+  value = module.galadriel.server_ip
+}
+
+output "galadriel_state" {
+  value = module.galadriel.server_state
+}
+
+#output "galadriel_volume_id" {
+#  value = module.disk02.volume_id
 #}
 
 output "default_pn_name"{

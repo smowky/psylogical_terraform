@@ -241,4 +241,22 @@ dns_records = {
       dns_note: "nextcloud on scaleway provider"
       dns_ttl: 600
    },
+   "galadriel": {
+      dns_name: "galadriel",
+      dns_value: "51.158.163.158"
+      dns_type: "A",
+      dns_priority: null
+      dns_proxied: "false",
+      dns_note: "web server, worpdress"
+      dns_ttl: 600
+   },
+   "galadriel.prod": {
+      dns_name: "galadriel.prod",
+      dns_value: "galadriel.psylogical.org"
+      dns_type: "CNAME",
+      dns_priority: null
+      dns_proxied: "false",
+      dns_note: "web server, worpdress"
+      dns_ttl: 600
+   },
 }
