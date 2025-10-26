@@ -68,8 +68,9 @@ locals {
     { ip = "0.0.0.0/0", port = "80" },  # web
     { ip = "0.0.0.0/0", port = "443" }, # https
     { ip = "0.0.0.0/0", port = "25" },  # postfix
-    { ip = "0.0.0.0/0", port = "110" }, # dovecot
-    { ip = "0.0.0.0/0", port = "993" }, # dovecot
+    { ip = "0.0.0.0/0", port = "110" }, # pop3/dovecot
+    { ip = "0.0.0.0/0", port = "143" }, # imap/dovecot
+    { ip = "0.0.0.0/0", port = "993" }, # imaps/dovecot
     { ip = "0.0.0.0/0", port = "587" }, # postfix
     { ip = "172.16.0.0/22", port = "389" }, # ldap
   ]
