@@ -6,7 +6,7 @@ cf_domain = "bout.cz"
 dns_records = {
    "main_domain_name": {
       dns_name: "@",
-      dns_value: "138.68.89.151"
+      dns_value: "51.158.163.158"
       dns_priority: null,
       dns_type: "A",
       dns_proxied: "false",

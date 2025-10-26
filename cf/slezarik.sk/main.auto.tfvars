@@ -30,7 +30,7 @@ dns_records = {
       dns_proxied: "false",
       dns_note: "mailgun spf record"
       dns_ttl: 600
-   },   
+   },
    "dkim": {
       dns_name: "email._domainkey.mg",
       dns_value: "k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDF3DeOub/BAk0lrPKz7rQb0KIEmFUQa/gmiv1ntmpXZuIHMtb+/zJide7X/H7VDETNkcx4ruZHTsVcPyhH6jxHjT3ZyPl+5iM9SLZXnNRGe61IqOPuo8DBtAb9giuc1qn0T9jlxSdDha2nPGRZRi3KHkpcPMa20OIuFw3XXgbznQIDAQAB"
