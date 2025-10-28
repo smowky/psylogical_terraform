@@ -107,7 +107,7 @@ module "sauron" {
   server_domain = var.server_domain
 
   server_name           = "sauron"
-  server_image          = "ubuntu_jammy"
+  server_image          = "ubuntu_noble"
   server_size           = "PLAY2-NANO"
   server_security_group = module.fw02.security_group_id
   private_vpc_id = module.vpc.pn_id
@@ -125,7 +125,7 @@ module "gandalf" {
   server_domain = var.server_domain
 
   server_name           = "gandalf"
-  server_image          = "ubuntu_jammy"
+  server_image          = "ubuntu_noble"
   server_size           = "PLAY2-NANO"
   server_security_group = module.fw01.security_group_id
   private_vpc_id = module.vpc.pn_id
@@ -143,7 +143,7 @@ module "galadriel" {
   server_domain = var.server_domain
 
   server_name           = "galadriel"
-  server_image          = "ubuntu_jammy"
+  server_image          = "ubuntu_noble"
   server_size           = "PLAY2-NANO"
   server_security_group = module.fw01.security_group_id
   private_vpc_id = module.vpc.pn_id
