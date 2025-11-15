@@ -57,3 +57,10 @@ variable "server_security_group" {
   type        = string
 }
 
+variable "root_volume_delete_on_termination" {
+  type = bool
+}
+variable "root_volume_size_in_gb" {
+  type = number
+  description = "size of root disk"
+}

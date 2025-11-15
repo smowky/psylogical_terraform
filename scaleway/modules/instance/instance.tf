@@ -37,8 +37,14 @@ resource "scaleway_instance_server" "server" {
       "hostnamectl set-hostname ${self.name}",
     ]
   }
-    private_network {
+
+  private_network {
     pn_id =       var.private_vpc_id
+  }
+
+  root_volume {
+    delete_on_termination = var.root_volume_delete_on_termination
+    size_in_gb            = var.root_volume_size_in_gb
   }
 
 }

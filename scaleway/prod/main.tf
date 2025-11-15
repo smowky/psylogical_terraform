@@ -113,6 +113,8 @@ module "sauron" {
   private_vpc_id = module.vpc.pn_id
   server_volume         = [module.disk01.volume_id]
   user_pass = var.user_pass
+  root_volume_delete_on_termination = true
+  root_volume_size_in_gb = 10
 }
 
 module "gandalf" {
@@ -131,6 +133,8 @@ module "gandalf" {
   private_vpc_id = module.vpc.pn_id
   server_volume         = [module.disk02.volume_id]
   user_pass = var.user_pass
+  root_volume_delete_on_termination = true
+  root_volume_size_in_gb = 10
 }
 
 module "galadriel" {
@@ -148,6 +152,29 @@ module "galadriel" {
   server_security_group = module.fw01.security_group_id
   private_vpc_id = module.vpc.pn_id
   user_pass = var.user_pass
+  root_volume_delete_on_termination = true
+  root_volume_size_in_gb = 10
+}
+
+module "elrond" {
+  source        = "../modules/instance/"
+  project_id    = scaleway_account_project.project.id
+  user_name     = var.user_name
+
+  scaleway_zone   = var.scaleway_zone
+  env           = var.env
+  server_domain = var.server_domain
+
+  server_name           = "elrond"
+  server_image          = "ubuntu_noble"
+  server_size           = "DEV1-M"
+  server_security_group = module.fw01.security_group_id
+  private_vpc_id = module.vpc.pn_id
+  server_volume         = [module.disk03.volume_id]
+  user_pass = var.user_pass
+  root_volume_delete_on_termination = true
+  root_volume_size_in_gb = 20
+
 }
 
 #################################################
@@ -170,6 +197,16 @@ module "disk02" {
   project_name             = var.project_name
   scaleway_zone            = var.scaleway_zone
   server_block_volume_size = 100
+}
+
+module "disk03" {
+  project_id    = scaleway_account_project.project.id
+  source                   = "../modules/volume/"
+  volume_name              = "disk03"
+  env                      = var.env
+  project_name             = var.project_name
+  scaleway_zone            = var.scaleway_zone
+  server_block_volume_size = 20
 }
 #################################################
 ## Output
@@ -225,6 +262,22 @@ output "galadriel_state" {
 #output "galadriel_volume_id" {
 #  value = module.disk02.volume_id
 #}
+
+output "elrond_hostname" {
+  value = module.elrond.server_name
+}
+
+output "elrond_ip" {
+  value = module.elrond.server_ip
+}
+
+output "elrond_state" {
+  value = module.elrond.server_state
+}
+
+output "elrond_volume_id" {
+  value = module.disk03.volume_id
+}
 
 output "default_pn_name"{
   value = module.vpc.pn_name
