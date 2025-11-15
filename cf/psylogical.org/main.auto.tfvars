@@ -60,9 +60,9 @@ dns_records = {
    },
    "mx3": {
       dns_name: "@",
-      dns_value: "rohan.psylogical.org"
+      dns_value: "sauron.psylogical.org"
       dns_type: "MX",
-      dns_priority: 10
+      dns_priority: 0
       dns_proxied: "false",
       dns_note: "psylogical mx record 1"
       dns_ttl: 600
@@ -257,6 +257,24 @@ dns_records = {
       dns_priority: null
       dns_proxied: "false",
       dns_note: "web server, worpdress"
+      dns_ttl: 600
+   },
+   "elrond": {
+      dns_name: "elrond",
+      dns_value: "51.15.62.63"
+      dns_type: "A",
+      dns_priority: null
+      dns_proxied: "false",
+      dns_note: "opensearch monitoring"
+      dns_ttl: 600
+   },
+   "elrond.prod": {
+      dns_name: "elrond.prod",
+      dns_value: "elrond.psylogical.org"
+      dns_type: "CNAME",
+      dns_priority: null
+      dns_proxied: "false",
+      dns_note: "opensearch monitoring"
       dns_ttl: 600
    },
 }
