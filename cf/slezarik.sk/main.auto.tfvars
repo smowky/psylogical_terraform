@@ -58,15 +58,6 @@ dns_records = {
       dns_note: "mailgun mx record 2"
       dns_ttl: 600
    },
-#   "mx3": {
-#      dns_name: "@",
-#      dns_value: "rohan.psylogical.org"
-#      dns_type: "MX",
-#      dns_priority: 10
-#      dns_proxied: "false",
-#      dns_note: "psylogical mx record 1"
-#      dns_ttl: 600
-#   },
    "mx4": {
       dns_name: "@",
       dns_value: "sauron.psylogical.org"

@@ -40,24 +40,6 @@ dns_records = {
       dns_note: "mailgun dkim record"
       dns_ttl: 600
    },
-   "mx1": {
-      dns_name: "mg",
-      dns_value: "mxa.eu.mailgun.org"
-      dns_type: "MX",
-      dns_priority: 10
-      dns_proxied: "false",
-      dns_note: "mailgun mx record 1"
-      dns_ttl: 600
-   },
-   "mx2": {
-      dns_name: "mg",
-      dns_value: "mxb.eu.mailgun.org"
-      dns_type: "MX",
-      dns_priority: 10
-      dns_proxied: "false",
-      dns_note: "mailgun mx record 2"
-      dns_ttl: 600
-   },
    "mx3": {
       dns_name: "@",
       dns_value: "sauron.psylogical.org"
@@ -85,18 +67,18 @@ dns_records = {
       dns_note: "dmarc record"
       dns_ttl: 600
    },
-
-##################################################
-# Servers
-   "edoras": {
-      dns_name: "edoras",
-      dns_value: "rohan.psylogical.org"
+  "mailgun": {
+      dns_name: "mailgun",
+      dns_value: "smtp.eu.mailgun.org"
       dns_type: "CNAME",
       dns_priority: null
       dns_proxied: "false",
-      dns_note: "iredmail postmaster"
+      dns_note: "mailgun smtp name to use in postfix"
       dns_ttl: 600
    },
+
+##################################################
+# Servers
    "gondor": {
       dns_name: "gondor",
       dns_value: "159.223.19.8"
@@ -181,24 +163,6 @@ dns_records = {
    "web": {
       dns_name: "web",
       dns_value: "18.185.138.3"
-      dns_type: "A",
-      dns_priority: null
-      dns_proxied: "false",
-      dns_note: "web hosting server"
-      dns_ttl: 600
-   },
-   "nc": {
-      dns_name: "nc",
-      dns_value: "31.31.72.221"
-      dns_type: "A",
-      dns_priority: null
-      dns_proxied: "false",
-      dns_note: "web hosting server"
-      dns_ttl: 600
-   },
-   "oo": {
-      dns_name: "oo",
-      dns_value: "31.31.72.221"
       dns_type: "A",
       dns_priority: null
       dns_proxied: "false",
