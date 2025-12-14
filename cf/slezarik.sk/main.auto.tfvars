@@ -100,7 +100,7 @@ dns_records = {
       dns_type: "CNAME",
       dns_priority: null
       dns_proxied: "false",
-      dns_note: "mailgun tracking cname"
+      dns_note: "mailgun smtp name to use in postfix"
       dns_ttl: 600
    },
 
