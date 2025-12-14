@@ -94,5 +94,14 @@ dns_records = {
       dns_note: "dmarc record "
       dns_ttl: 600
    },
+  "mailgun": {
+      dns_name: "mailgun",
+      dns_value: "smtp.eu.mailgun.org"
+      dns_type: "CNAME",
+      dns_priority: null
+      dns_proxied: "false",
+      dns_note: "mailgun tracking cname"
+      dns_ttl: 600
+   },
 
 }
